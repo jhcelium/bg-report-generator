@@ -1,68 +1,70 @@
-# Neoidigital Background Investigation Report Generator
+# Neoidigital Due Diligence Report Generator
 
-AI-powered company background investigation tool. Enter a company name → get a professional due diligence report in minutes.
+AI-powered company due diligence tool. Enter a company name, pay $79 via Stripe, and get a professional business partner due diligence report in minutes.
+
+**Live:** https://duediligence.neoidigital.com
 
 ## Features
 
+- **Stripe payment** — $79 per report, secure checkout via Stripe
 - **Real-time web search** — Uses Claude API + web search for live data
 - **Dual theme** — Dark professional / Light clean, one-click switch
 - **10-section report** — Executive Summary, Company Profile, Key People, Digital Footprint, Financial Signals, Supply Chain, Risk Assessment (Admiralty Code), ACH Analysis, Cross-Analysis, Action Plan
-- **Single HTML file** — No build step, no dependencies, just open in browser
 - **Export** — Print to PDF or download as standalone HTML
 
 ## Quick Start
 
-1. Get an [Anthropic API key](https://console.anthropic.com/)
-2. Open `index.html` in your browser
-3. Paste your API key, enter a company name, click **Start Investigation**
-4. Report generates in ~2 minutes
+1. Copy `.env.example` to `.env` and fill in your keys:
+   ```bash
+   cp .env.example .env
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the server:
+   ```bash
+   npm start
+   ```
+4. Open http://localhost:3000 in your browser
 
-## Cost
+## Environment Variables
 
-~$0.12 per report using Claude Sonnet 4.6 ($3/$15 per MTok + $0.01/search)
+| Variable | Description |
+|----------|-------------|
+| `STRIPE_SECRET_KEY` | Stripe secret key (`sk_test_...` or `sk_live_...`) |
+| `STRIPE_WEBHOOK_SECRET` | Stripe webhook signing secret (`whsec_...`) |
+| `ANTHROPIC_API_KEY` | Anthropic API key (`sk-ant-api03-...`) |
+| `PORT` | Server port (default: 3000) |
+| `BASE_URL` | Public URL for Stripe redirects (default: http://localhost:3000) |
 
-| Volume | Monthly Cost |
-|--------|-------------|
-| 10/mo  | ~$1.2       |
-| 100/mo | ~$12        |
-| 1000/mo| ~$120       |
+## Stripe Webhook Setup
 
-## Production Deployment
+For production, set up the Stripe webhook to receive payment events:
 
-> ⚠️ The current version calls the Anthropic API directly from the browser. For production use, **set up a backend proxy** to protect your API key.
-
-Example proxy (Node.js):
-
-```javascript
-// server.js
-app.post('/api/claude', async (req, res) => {
-  const response = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': process.env.ANTHROPIC_API_KEY,
-      'anthropic-version': '2023-06-01'
-    },
-    body: JSON.stringify(req.body)
-  });
-  const data = await response.json();
-  res.json(data);
-});
+```bash
+# Using Stripe CLI for local development
+stripe listen --forward-to localhost:3000/webhook
 ```
 
-Then change the fetch URL in the HTML from `https://api.anthropic.com/v1/messages` to `/api/claude`.
+In the Stripe Dashboard, add the webhook endpoint: `https://duediligence.neoidigital.com/webhook`
 
 ## Tech Stack
 
+- Node.js + Express
+- Stripe Checkout
 - Claude Sonnet 4.6 (`claude-sonnet-4-6`)
 - Web Search API (`web_search_20260209`)
-- Single-file HTML/CSS/JS (no framework)
+- Single-file HTML/CSS/JS frontend
 
 ## File Structure
 
 ```
-index.html      # Background investigation report generator
-README.md       # This file
+index.html      # Frontend — form, payment flow, report renderer
+server.js       # Backend — Stripe checkout, payment verification, Claude API
+package.json    # Dependencies
+.env.example    # Environment variable template
+.gitignore      # Ignore node_modules and .env
 ```
 
 ## License
@@ -71,4 +73,4 @@ MIT
 
 ---
 
-Built by [Neoidigital](https://neoidigital.com)
+Built by [Neoidigital](https://www.japan-market.neoidigital.com/)

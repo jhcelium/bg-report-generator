@@ -3,7 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Neoidigital — Professional Background Investigation Report</title>
+<title>Due Diligence Report — Company &amp; Partner Screening | Neoidigital</title>
+<meta name="description" content="Screen companies, suppliers, and business partners with a professional due diligence report. Structured findings, risk signals, source references, and next-step recommendations. $79 per report.">
+<meta name="keywords" content="due diligence report, company due diligence report, business partner due diligence report, supplier screening, partner risk assessment">
+<link rel="canonical" href="https://duediligence.neoidigital.com/">
+<meta property="og:title" content="Due Diligence Report — Company &amp; Partner Screening">
+<meta property="og:description" content="Professional company due diligence report with structured findings, risk signals, and decision-ready recommendations. Screen suppliers, partners, and distributors before you commit.">
+<meta property="og:url" content="https://duediligence.neoidigital.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Neoidigital Due Diligence">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Due Diligence Report — Company &amp; Partner Screening">
+<meta name="twitter:description" content="Professional due diligence report for screening companies, suppliers, and business partners. $79 per report.">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
@@ -85,16 +96,85 @@
   }
 
   .input-card h1 {
-    font-size: 1.75rem;
+    font-size: 1.85rem;
     font-weight: 700;
     color: var(--text-bright);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.65rem;
+    letter-spacing: -0.3px;
   }
 
   .input-card .subtitle {
+    color: var(--text);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.6rem;
+  }
+
+  .input-card .supporting-line {
     color: var(--text-muted);
-    font-size: 0.9rem;
-    margin-bottom: 2rem;
+    font-size: 0.82rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .value-points {
+    display: flex;
+    gap: 1.25rem;
+    margin-bottom: 1.75rem;
+    padding: 0.75rem 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .value-points .vp {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--text);
+    letter-spacing: 0.2px;
+  }
+
+  .value-points .vp-icon {
+    color: var(--accent);
+    font-size: 0.7rem;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 768px) {
+    .value-points { flex-direction: column; gap: 0.5rem; }
+  }
+
+  .theme-section {
+    margin-bottom: 1.25rem;
+  }
+
+  .theme-section label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.35rem;
+    display: block;
+    opacity: 0.7;
+  }
+
+  .cta-helper {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .cta-reassurance {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 0.75rem;
+    opacity: 0.7;
+    letter-spacing: 0.2px;
   }
 
   .form-group {
@@ -146,7 +226,6 @@
   .theme-toggle {
     display: flex;
     gap: 0.5rem;
-    margin-bottom: 1.5rem;
   }
 
   .theme-btn {
@@ -779,19 +858,20 @@
 <!-- ===== INPUT SCREEN ===== -->
 <div id="inputScreen" class="input-screen">
   <div class="input-card">
-    <div class="brand">N E O I D I G I T A L</div>
-    <h1>Background Investigation Report</h1>
-    <p class="subtitle">Enter company details to auto-generate a professional background investigation report</p>
+    <div class="brand"><a href="https://www.japan-market.neoidigital.com/" style="color:var(--accent);text-decoration:none;">N E O I D I G I T A L</a></div>
+    <h1>Due Diligence Report</h1>
+    <p class="subtitle">Screen companies, suppliers, and business partners with a professional due diligence report built for faster, safer business decisions.</p>
+    <p class="supporting-line">Includes structured findings, risk signals, source references, and practical next-step recommendations.</p>
 
-    <div class="form-group">
-      <label>Anthropic API Key *</label>
-      <input type="password" id="apiKey" placeholder="sk-ant-api03-..." />
-      <div style="font-size:0.72rem;color:var(--text-muted);margin-top:0.25rem;">Key is used locally in your browser only. Use a backend proxy in production.</div>
+    <div class="value-points">
+      <div class="vp"><span class="vp-icon">&#9670;</span> Identify red flags early</div>
+      <div class="vp"><span class="vp-icon">&#9670;</span> Verify business credibility</div>
+      <div class="vp"><span class="vp-icon">&#9670;</span> Make decisions with confidence</div>
     </div>
 
     <div class="form-group">
       <label>Company Name *</label>
-      <input type="text" id="companyName" placeholder="e.g. Renogy / Siemens AG / Tesla Inc." />
+      <input type="text" id="companyName" placeholder="e.g. Renogy / Siemens AG / Tesla, Inc." />
     </div>
 
     <div class="form-group">
@@ -806,31 +886,37 @@
       </div>
       <div class="form-group">
         <label>Industry</label>
-        <input type="text" id="companyIndustry" placeholder="e.g. Solar Energy / Sports Nutrition" />
+        <input type="text" id="companyIndustry" placeholder="e.g. Solar Energy / Consumer Electronics / Sports Nutrition" />
       </div>
     </div>
 
     <div class="form-group">
-      <label>Investigation Purpose</label>
-      <textarea id="companyContext" placeholder="e.g. We are a supplier evaluating a potential distribution partnership. Focus on financial stability, customer reputation, and key decision-makers."></textarea>
+      <label>Screening Purpose</label>
+      <textarea id="companyContext" placeholder="e.g. We are reviewing a potential distributor. Please assess business credibility, reputation, financial stability, and key decision-makers."></textarea>
     </div>
 
     <div class="form-group">
-      <label>Additional Info (optional)</label>
-      <textarea id="companyExtra" placeholder="e.g. Founded by Yi Li, Series E funded; very active on Shopee..."></textarea>
+      <label>Context or Known Signals (optional)</label>
+      <textarea id="companyExtra" placeholder="e.g. Claims to manufacture in-house; expanding into the US market; active on Amazon, Alibaba, and LinkedIn."></textarea>
     </div>
 
-    <div class="form-group">
+    <div class="theme-section">
       <label>Report Theme</label>
       <div class="theme-toggle">
-        <button class="theme-btn active" onclick="selectTheme('dark', this)">🌙 Dark Professional</button>
-        <button class="theme-btn" onclick="selectTheme('light', this)">☀️ Light Clean</button>
+        <button class="theme-btn active" onclick="selectTheme('dark', this)">Dark Professional</button>
+        <button class="theme-btn" onclick="selectTheme('light', this)">Light Clean</button>
       </div>
     </div>
 
-    <button class="generate-btn" id="generateBtn" onclick="startGeneration()">
-      🔍 Start Investigation
+    <button class="generate-btn" id="generateBtn" onclick="startPayment()">
+      Get Due Diligence Report — $79
     </button>
+    <div class="cta-helper">
+      Secure payment via Stripe. Delivered in minutes in a professional, decision-ready format.
+    </div>
+    <div class="cta-reassurance">
+      Built for supplier checks, partner screening, distributor review, and pre-engagement risk assessment.
+    </div>
   </div>
 </div>
 
@@ -838,7 +924,7 @@
 <div id="progressScreen" class="progress-screen hidden">
   <div class="progress-card">
     <div class="spinner"></div>
-    <h2>Investigating... <span id="timerDisplay" style="color:var(--accent);font-family:var(--font-mono);font-size:0.9rem;">0s</span></h2>
+    <h2>Compiling your report... <span id="timerDisplay" style="color:var(--accent);font-family:var(--font-mono);font-size:0.9rem;">0s</span></h2>
     <div class="progress-bar-outer">
       <div class="progress-bar-inner" id="progressBar"></div>
     </div>
@@ -862,15 +948,6 @@
 <script>
 let selectedTheme = 'dark';
 let reportData = null;
-
-// Restore API key from session
-try {
-  const saved = sessionStorage.getItem('_ak');
-  if (saved) document.addEventListener('DOMContentLoaded', () => {
-    const el = document.getElementById('apiKey');
-    if (el) el.value = saved;
-  });
-} catch(e) {}
 
 function selectTheme(theme, btn) {
   selectedTheme = theme;
@@ -907,62 +984,6 @@ function setProgress(pct) {
   document.getElementById('progressBar').style.width = pct + '%';
 }
 
-async function callClaude(messages, maxTokens = 4096, useSearch = false) {
-  const apiKey = document.getElementById('apiKey').value.trim();
-
-  const body = {
-    model: "claude-sonnet-4-6",
-    max_tokens: maxTokens,
-    system: "You are a professional business intelligence analyst. Output only valid JSON. No ```markdown fences. No explanatory text before or after. Escape quotes in string values with \\\". No trailing commas. Use null for unknown fields. Use web search for latest real-time data. Keep all string values concise, max 50 words each.",
-    messages: messages
-  };
-
-  if (useSearch) {
-    body.tools = [{ type: "web_search_20260209", name: "web_search" }];
-  }
-
-  const headers = {
-    "Content-Type": "application/json",
-    "anthropic-version": "2023-06-01"
-  };
-
-  // If API key is provided, use direct API call
-  // If not (Artifact mode), omit auth header and let platform handle it
-  if (apiKey) {
-    headers["x-api-key"] = apiKey;
-    // CORS: direct browser→API needs dangerous-browser header
-    headers["anthropic-dangerous-direct-browser-access"] = "true";
-  }
-
-  const startTime = Date.now();
-  
-  const response = await fetch("https://api.anthropic.com/v1/messages", {
-    method: "POST",
-    headers: headers,
-    body: JSON.stringify(body)
-  });
-
-  const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
-  console.log(`API call completed in ${elapsed}s (search: ${useSearch})`);
-
-  if (!response.ok) {
-    const errText = await response.text();
-    if (response.status === 401) throw new Error('Invalid API Key, please check and retry');
-    if (response.status === 429) throw new Error('Too many requests, please wait and retry');
-    if (response.status === 529) throw new Error('API overloaded, please wait and retry');
-    throw new Error(`API ${response.status}: ${errText.substring(0, 300)}`);
-  }
-
-  const data = await response.json();
-  if (data.error) throw new Error(data.error.message || JSON.stringify(data.error));
-
-  const textParts = (data.content || [])
-    .filter(item => item.type === "text")
-    .map(item => item.text);
-  return textParts.join("\n");
-}
-
-// Timer display
 let timerInterval = null;
 let timerStart = 0;
 function startTimer() {
@@ -978,272 +999,160 @@ function stopTimer() {
   if (timerInterval) clearInterval(timerInterval);
 }
 
-async function startGeneration() {
-  const name = document.getElementById('companyName').value.trim();
-  const apiKey = document.getElementById('apiKey').value.trim();
-  if (!name) { alert('Please enter a company name'); return; }
-  if (!apiKey) { alert('Please enter your Anthropic API Key'); return; }
+function getFormData() {
+  return {
+    companyName: document.getElementById('companyName').value.trim(),
+    companyUrl: document.getElementById('companyUrl').value.trim(),
+    companyCountry: document.getElementById('companyCountry').value.trim(),
+    companyIndustry: document.getElementById('companyIndustry').value.trim(),
+    companyContext: document.getElementById('companyContext').value.trim(),
+    companyExtra: document.getElementById('companyExtra').value.trim(),
+    selectedTheme,
+  };
+}
 
-  const url = document.getElementById('companyUrl').value.trim();
-  const country = document.getElementById('companyCountry').value.trim();
-  const industry = document.getElementById('companyIndustry').value.trim();
-  const context = document.getElementById('companyContext').value.trim();
-  const extra = document.getElementById('companyExtra').value.trim();
+function restoreFormData(data) {
+  if (!data) return;
+  document.getElementById('companyName').value = data.companyName || '';
+  document.getElementById('companyUrl').value = data.companyUrl || '';
+  document.getElementById('companyCountry').value = data.companyCountry || '';
+  document.getElementById('companyIndustry').value = data.companyIndustry || '';
+  document.getElementById('companyContext').value = data.companyContext || '';
+  document.getElementById('companyExtra').value = data.companyExtra || '';
+  if (data.selectedTheme) {
+    selectedTheme = data.selectedTheme;
+    document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+    const idx = selectedTheme === 'light' ? 1 : 0;
+    document.querySelectorAll('.theme-btn')[idx]?.classList.add('active');
+  }
+}
 
-  // Save API key to sessionStorage for convenience (not localStorage for security)
-  try { sessionStorage.setItem('_ak', apiKey); } catch(e) {}
+// ── Payment Flow ──────────────────────────────────────────────────────────
 
-  if (selectedTheme === 'light') document.body.classList.add('theme-light');
+async function startPayment() {
+  const formData = getFormData();
+  if (!formData.companyName) { alert('Please enter a company name'); return; }
+
+  const btn = document.getElementById('generateBtn');
+  btn.disabled = true;
+  btn.textContent = 'Redirecting to payment...';
+
+  try {
+    sessionStorage.setItem('_formData', JSON.stringify(formData));
+
+    const res = await fetch('/create-checkout-session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ companyName: formData.companyName }),
+    });
+
+    const data = await res.json();
+    if (data.error) throw new Error(data.error);
+    window.location.href = data.url;
+  } catch (err) {
+    alert('Payment initiation failed: ' + err.message);
+    btn.disabled = false;
+    btn.textContent = 'Get Due Diligence Report — $79';
+  }
+}
+
+// ── Post-Payment: Generate Report via SSE ────────────────────────────────
+
+async function startGenerationAfterPayment(sessionId) {
+  const saved = sessionStorage.getItem('_formData');
+  const formData = saved ? JSON.parse(saved) : {};
+
+  if (!formData.companyName) {
+    alert('Session expired. Please enter the company details again.');
+    window.location.href = '/';
+    return;
+  }
+
+  if (formData.selectedTheme === 'light') document.body.classList.add('theme-light');
 
   document.getElementById('inputScreen').classList.add('hidden');
   document.getElementById('progressScreen').classList.remove('hidden');
   startTimer();
 
-  const today = new Date().toISOString().split('T')[0];
-
-  const inputSummary = `Company: ${name} | Website: ${url || '?'} | Country: ${country || '?'} | Industry: ${industry || '?'} | Purpose: ${context || 'Business partnership evaluation'} | Notes: ${extra || 'none'}`;
+  addLog('Payment confirmed. Preparing due diligence report...');
+  setProgress(5);
 
   try {
-    // ===== PHASE 1: Research with web search =====
-    let step1 = addLog('Phase 1/3: Researching company (web search enabled)...');
-    setProgress(10);
+    const response = await fetch('/generate-report', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ sessionId, ...formData }),
+    });
 
-    const research = await callClaude([{
-      role: "user",
-      content: `Conduct a comprehensive background investigation on: ${inputSummary}
-
-Use web search for latest real-time data. Search: official website, LinkedIn, Trustpilot, BBB, Glassdoor, Google Reviews, Amazon, Crunchbase, PitchBook, social media, business registries.
-
-Return JSON (concise values, max 50 words each):
-{
-  "company": {
-    "legal_name": null, "dba": null, "related_entities": [], "registration_country": null,
-    "hq_address": null, "founded_year": null, "domain": null, "domain_age": null,
-    "employees": null, "founder_ceo": null, "revenue_estimate": null,
-    "revenue_tier": null, "funding": null, "industry": null, "business_model": null,
-    "market_coverage": null, "tech_stack": [], "brands": [], "certifications": null, "phone": null
-  },
-  "kpis": {"revenue": null, "funding": null, "employees": null, "years": null, "open_positions": null, "rating": null},
-  "key_people": [{"name": null, "title": null, "email": null, "location": null, "background": null, "priority": "P1", "approach_tip": null}],
-  "email_format": null,
-  "org_insight": null,
-  "decision_path": null,
-  "social_media": [{"platform": null, "data": null, "status": null}],
-  "review_platforms": [{"platform": null, "rating": null, "count": null, "positive": null, "negative": null}],
-  "domain_whois": {"domain": null, "registered": null, "expires": null, "registrar": null},
-  "structural_weakness": null,
-  "funding_rounds": [{"round": null, "date": null, "amount": null, "investors": null}],
-  "revenue_sources": [{"source": null, "data": null, "reliability": null, "assessment": null}],
-  "supply_chain": {"entities": [{"name": null, "location": null, "role": null}], "assessment": null},
-  "legal_issues": [{"case": null, "type": null, "significance": null}],
-  "financial_health": null
-}`
-    }], 4096, true);
-
-    updateLog(step1, 'Phase 1/3: Research complete ✓', 'done');
-    setProgress(50);
-
-    // Truncate research to avoid oversized prompt
-    const researchShort = research.substring(0, 3000);
-
-    // ===== PHASE 2a: Risk Assessment =====
-    let step2 = addLog('Phase 2/3: Risk assessment in progress...');
-
-    const riskAssessment = await callClaude([{
-      role: "user",
-      content: `Perform risk assessment based on research data. Company: ${name} | Purpose: ${context || 'Business partnership evaluation'}
-
-Research data (summary):
-${researchShort}
-
-Return JSON (concise values, max 30 words each):
-{
-  "executive_summary": {
-    "conclusion": "Core conclusion",
-    "risk_level": "low or medium or high",
-    "risk_label": "Risk recommendation label",
-    "recommendation": "One-line recommendation",
-    "key_findings": [{"num": "01", "text": "Finding", "type": "positive or warning or critical"}]
-  },
-  "admiralty_assessment": [{"item": "Item", "content": "Content", "source": "Source", "reliability": "A-F", "credibility": "1-6", "meaning": "Meaning", "signal": "ok or warn or bad"}],
-  "ach_analysis": [{"hypothesis": "Hypothesis", "probability": "70%", "class": "primary or secondary or tertiary", "description": "Description"}],
-  "ach_conclusion": "Final judgment",
-  "cross_analysis": [{"num": "01", "title": "Title", "body": "Description", "signal": "red or yellow or green", "opportunity_or_risk": "opportunity or risk", "actionable": "Recommendation"}],
-  "strategic_insight": "Strategic summary"
-}`
-    }], 4096, false);
-
-    updateLog(step2, 'Phase 2/3: Risk assessment complete ✓', 'done');
-    setProgress(70);
-
-    // ===== PHASE 2b: Action Plan =====
-    let step3 = addLog('Phase 3/3: Generating action plan...');
-
-    const actionPlan = await callClaude([{
-      role: "user",
-      content: `Generate partnership action plan. Company: ${name} | Purpose: ${context || 'Business partnership evaluation'}
-
-Research data (summary):
-${researchShort}
-
-Return JSON (concise values):
-{
-  "action_plan": {
-    "contact_strategy": [{"priority": "P1", "person": "Name", "email": "Email", "scenario": "Scenario", "approach": "Approach"}],
-    "contract_notes": ["Note 1", "Note 2"],
-    "must_haves": ["Must-have 1", "Must-have 2"],
-    "risk_mitigation": ["Mitigation 1", "Mitigation 2"],
-    "verification_checklist": ["Verify 1", "Verify 2"]
-  },
-  "data_sources": [{"name": "Source", "url": "URL", "date": "${today}"}]
-}`
-    }], 2048, false);
-
-    updateLog(step3, 'Phase 3/3: Action plan complete ✓', 'done');
-    setProgress(90);
-
-    // ===== RENDER =====
-    addLog('Rendering report...');
-    setProgress(95);
-
-    const researchData = safeParseJSON(research);
-    const riskData = safeParseJSON(riskAssessment);
-    const actionData = safeParseJSON(actionPlan);
-
-    // If JSON parse failed, try one repair
-    async function tryRepair(data, raw, label) {
-      if (data._raw) {
-        addLog(`⚠️ ${label} JSON repair in progress...`);
-        try {
-          const fixed = await callClaude([{
-            role: "user",
-            content: `Fix this JSON, return only valid JSON：\n${raw.substring(0, 4000)}`
-          }]);
-          const repaired = safeParseJSON(fixed);
-          if (!repaired._raw) { addLog(`${label} repaired ✓`, 'done'); return repaired; }
-        } catch(e) { console.warn('Repair failed', e); }
-      }
-      return data;
+    if (!response.ok) {
+      const errData = await response.json();
+      throw new Error(errData.error || `Server error ${response.status}`);
     }
 
-    const rd = await tryRepair(researchData, research, 'Research data');
-    const rkd = await tryRepair(riskData, riskAssessment, 'Risk assessment');
-    const acd = await tryRepair(actionData, actionPlan, 'Action plan');
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
 
-    // Merge risk + action into synthesis
-    const sd = { ...rkd, ...acd };
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
 
-    // Merge into expected structure
-    const parsed = {
-      profile: { company: rd.company || rd, kpis: rd.kpis || {} },
-      people: { key_people: rd.key_people || [], email_format: rd.email_format, phone: rd.company?.phone, org_insight: rd.org_insight, decision_path: rd.decision_path },
-      digital: { social_media: rd.social_media || [], review_platforms: rd.review_platforms || [], domain_whois: rd.domain_whois || {}, complaint_analysis: { structural_weakness: rd.structural_weakness } },
-      financial: { funding_rounds: rd.funding_rounds || [], revenue_sources: rd.revenue_sources || [], revenue_conclusion: rd.financial_health, supply_chain: rd.supply_chain || {}, legal_issues: rd.legal_issues || [], financial_health: rd.financial_health },
-      synthesis: sd
-    };
+      buffer += decoder.decode(value, { stream: true });
+      const lines = buffer.split('\n');
+      buffer = lines.pop();
 
-    reportData = parsed;
-    renderReport(parsed, name, today, context);
+      for (const line of lines) {
+        if (!line.startsWith('data: ')) continue;
+        const payload = JSON.parse(line.slice(6));
 
-    setProgress(100);
-    stopTimer();
-    addLog('Report generated successfully!', 'done');
+        if (payload.type === 'progress') {
+          addLog(payload.message, 'done');
+          setProgress(payload.percent);
+        } else if (payload.type === 'complete') {
+          setProgress(100);
+          stopTimer();
+          addLog('Report complete. Opening your due diligence report.', 'done');
 
-    setTimeout(() => {
-      document.getElementById('progressScreen').classList.add('hidden');
-      document.getElementById('reportScreen').classList.remove('hidden');
-    }, 800);
+          reportData = payload.report;
+          renderReport(payload.report, payload.companyName, payload.date, formData.companyContext);
 
+          sessionStorage.removeItem('_formData');
+
+          setTimeout(() => {
+            document.getElementById('progressScreen').classList.add('hidden');
+            document.getElementById('reportScreen').classList.remove('hidden');
+          }, 800);
+        } else if (payload.type === 'error') {
+          throw new Error(payload.message);
+        }
+      }
+    }
   } catch (err) {
     stopTimer();
-    addLog('❌ Error: ' + err.message, 'error');
-    addLog('Please refresh and retry, or check browser console', 'error');
+    addLog('Error: ' + err.message, 'error');
+    addLog('Please contact support if the issue persists.', 'error');
     console.error(err);
   }
 }
 
-function safeParseJSON(text) {
-  if (!text || typeof text !== 'string') return { _raw: String(text) };
+// ── Page Load: check for session_id or cancelled ─────────────────────────
 
-  // Step 1: Extract JSON substring
-  let cleaned = text.trim();
-  // Remove markdown code fences (greedy, multi-line)
-  cleaned = cleaned.replace(/^```[\s\S]*?\n/i, '').replace(/\n?\s*```\s*$/i, '');
-  // Find outermost { ... }
-  const start = cleaned.indexOf('{');
-  const end = cleaned.lastIndexOf('}');
-  if (start === -1 || end === -1 || end <= start) {
-    console.warn('No JSON object found in text');
-    return { _raw: text };
-  }
-  cleaned = cleaned.substring(start, end + 1);
+document.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
 
-  // Step 2: Try direct parse
-  try { return JSON.parse(cleaned); } catch (e1) {
-    console.warn('Direct parse failed, attempting repair...', e1.message);
+  if (params.get('cancelled') === 'true') {
+    const saved = sessionStorage.getItem('_formData');
+    if (saved) restoreFormData(JSON.parse(saved));
+    window.history.replaceState({}, '', '/');
+    return;
   }
 
-  // Step 3: Repair common LLM JSON issues
-  let repaired = cleaned;
-  // Remove JS-style comments
-  repaired = repaired.replace(/\/\/[^\n]*/g, '');
-  repaired = repaired.replace(/\/\*[\s\S]*?\*\//g, '');
-  // Fix trailing commas before ] or }
-  repaired = repaired.replace(/,\s*([\]}])/g, '$1');
-  // Fix missing commas between } { or } " or ] " or " " (value-key boundaries)
-  repaired = repaired.replace(/}\s*{/g, '},{');
-  repaired = repaired.replace(/}\s*"/g, '}, "');
-  repaired = repaired.replace(/]\s*"/g, '], "');
-  // Fix unescaped newlines inside strings
-  repaired = repaired.replace(/(?<=:\s*"[^"]*)\n([^"]*")/g, '\\n$1');
-  // Replace single quotes used as JSON quotes (only around keys/values)
-  repaired = repaired.replace(/:\s*'([^']*)'/g, ': "$1"');
-  // Fix missing quotes around keys  key: -> "key":
-  repaired = repaired.replace(/([{,]\s*)([a-zA-Z_][a-zA-Z0-9_]*)\s*:/g, '$1"$2":');
-
-  try { return JSON.parse(repaired); } catch (e2) {
-    console.warn('Repair attempt 1 failed:', e2.message);
+  const sessionId = params.get('session_id');
+  if (sessionId) {
+    window.history.replaceState({}, '', '/');
+    startGenerationAfterPayment(sessionId);
   }
-
-  // Step 4: More aggressive — try to fix unescaped quotes inside string values
-  // Replace problematic characters
-  let aggressive = repaired;
-  // Remove control characters except \n \t
-  aggressive = aggressive.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g, '');
-  // Try to fix broken string values by escaping internal quotes
-  // This is a heuristic: find strings and escape any unescaped " inside
-  aggressive = aggressive.replace(/"([^"]*?)"/g, (match, content) => {
-    // If content has colons or brackets, it might be a value with quotes inside
-    const escaped = content.replace(/(?<!\\)"/g, '\\"');
-    return `"${escaped}"`;
-  });
-
-  try { return JSON.parse(aggressive); } catch (e3) {
-    console.warn('Repair attempt 2 failed:', e3.message);
-  }
-
-  // Step 5: Last resort — use Claude to fix the JSON
-  console.warn('All local repairs failed. Returning partial data.');
-
-  // Try to extract at least some key-value pairs with regex
-  const partial = {};
-  const kvPattern = /"([^"]+)"\s*:\s*("(?:[^"\\]|\\.)*"|[\d.]+|true|false|null|\[[^\]]*\])/g;
-  let match;
-  while ((match = kvPattern.exec(cleaned)) !== null) {
-    try {
-      partial[match[1]] = JSON.parse(match[2]);
-    } catch {
-      partial[match[1]] = match[2].replace(/^"|"$/g, '');
-    }
-  }
-
-  if (Object.keys(partial).length > 0) {
-    console.log('Extracted partial data:', Object.keys(partial).length, 'fields');
-    return partial;
-  }
-
-  return { _raw: text };
-}
+});
 
 function val(obj, path, fallback = '—') {
   try {
@@ -1281,7 +1190,7 @@ function renderReport(data, companyName, date, context) {
         <span class="risk-badge ${riskClass}">${riskIcon} ${riskText}</span>
       </div>
 
-      <div class="version-tag">—— Background Investigation Report V2.0 &nbsp;|&nbsp; Source: Real-time Web Search &nbsp;|&nbsp; ${date}</div>
+      <div class="version-tag">—— Due Diligence Report V2.0 &nbsp;|&nbsp; Multi-source Research &nbsp;|&nbsp; ${date}</div>
 
       <h1>
         ${companyName}
@@ -1633,12 +1542,12 @@ function renderReport(data, companyName, date, context) {
 
       <div style="margin-top:1.5rem;padding:1rem;background:var(--surface-2);border-radius:var(--radius);font-size:0.8rem;color:var(--text-muted);text-align:center;">
         This report is generated from publicly available information for reference only. All data sourced from public channels in compliance with applicable laws and platform terms of service.<br>
-        Investigation date: ${date} &nbsp;|&nbsp; Risk rating: ${riskIcon} ${riskText}
+        Due diligence date: ${date} &nbsp;|&nbsp; Risk rating: ${riskIcon} ${riskText}
       </div>
     </div>
 
     <div class="report-footer">
-      © Neoidigital &nbsp;|&nbsp; Professional Background Investigation Report &nbsp;|&nbsp; ${date}
+      © <a href="https://www.japan-market.neoidigital.com/" style="color:var(--text-muted);text-decoration:none;">Neoidigital</a> &nbsp;|&nbsp; Company Due Diligence Report &nbsp;|&nbsp; ${date}
     </div>
   `;
 
@@ -1649,13 +1558,13 @@ function downloadHTML() {
   const content = document.getElementById('reportScreen').innerHTML;
   const style = document.querySelector('style').outerHTML;
   const isLight = document.body.classList.contains('theme-light');
-  const fullHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Neoidigital Background Report</title>${style}</head><body${isLight ? ' class="theme-light"' : ''}>${content}</body></html>`;
+  const fullHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Neoidigital Due Diligence Report</title>${style}</head><body${isLight ? ' class="theme-light"' : ''}>${content}</body></html>`;
   
   const blob = new Blob([fullHTML], { type: 'text/html;charset=utf-8' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `bg-report-${new Date().toISOString().split('T')[0]}.html`;
+  a.download = `due-diligence-report-${new Date().toISOString().split('T')[0]}.html`;
   a.click();
   URL.revokeObjectURL(url);
 }

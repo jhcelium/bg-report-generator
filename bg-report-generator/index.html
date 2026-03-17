@@ -1,0 +1,1664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neoidigital — Professional Background Investigation Report</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface-2: #1c2333;
+    --surface-3: #252d3a;
+    --border: #30363d;
+    --border-accent: #e8972540;
+    --text: #c9d1d9;
+    --text-muted: #8b949e;
+    --text-bright: #f0f6fc;
+    --accent: #e89725;
+    --accent-dim: #e8972530;
+    --green: #3fb950;
+    --green-dim: #3fb95020;
+    --red: #f85149;
+    --red-dim: #f8514920;
+    --yellow: #d29922;
+    --yellow-dim: #d2992220;
+    --blue: #58a6ff;
+    --blue-dim: #58a6ff20;
+    --cyan: #56d4dd;
+    --font-sans: 'Inter', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --radius: 8px;
+    --radius-lg: 12px;
+  }
+
+  .theme-light {
+    --bg: #f8f9fa;
+    --surface: #ffffff;
+    --surface-2: #f1f3f5;
+    --surface-3: #e9ecef;
+    --border: #dee2e6;
+    --border-accent: #e8972540;
+    --text: #343a40;
+    --text-muted: #868e96;
+    --text-bright: #212529;
+    --accent: #d48806;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ===== INPUT FORM ===== */
+  .input-screen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .input-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 3rem;
+    max-width: 680px;
+    width: 100%;
+  }
+
+  .input-card .brand {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .input-card h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-bright);
+    margin-bottom: 0.5rem;
+  }
+
+  .input-card .subtitle {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.4rem;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text-bright);
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  .form-group textarea {
+    min-height: 80px;
+    resize: vertical;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .theme-toggle {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .theme-btn {
+    flex: 1;
+    padding: 0.6rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface-2);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: var(--font-sans);
+  }
+
+  .theme-btn.active {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-dim);
+  }
+
+  .generate-btn {
+    width: 100%;
+    padding: 1rem;
+    background: var(--accent);
+    color: #000;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    letter-spacing: 0.5px;
+    transition: opacity 0.2s;
+    margin-top: 0.5rem;
+  }
+
+  .generate-btn:hover { opacity: 0.9; }
+  .generate-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  /* ===== PROGRESS ===== */
+  .progress-screen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .progress-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 3rem;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .progress-card h2 {
+    color: var(--text-bright);
+    margin-bottom: 1.5rem;
+  }
+
+  .progress-bar-outer {
+    width: 100%;
+    height: 6px;
+    background: var(--surface-3);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+
+  .progress-bar-inner {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 3px;
+    transition: width 0.5s ease;
+    width: 0%;
+  }
+
+  .progress-log {
+    text-align: left;
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 1rem;
+    background: var(--surface-2);
+    border-radius: var(--radius);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+  }
+
+  .progress-log .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .progress-log .step .icon { flex-shrink: 0; }
+  .progress-log .step.done { color: var(--green); }
+  .progress-log .step.active { color: var(--accent); }
+  .progress-log .step.error { color: var(--red); }
+
+  /* ===== REPORT STYLES ===== */
+  .report-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .report-header {
+    padding: 2.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    margin-bottom: 2rem;
+  }
+
+  .report-header .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .risk-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.8rem;
+  }
+
+  .risk-low { background: var(--green-dim); color: var(--green); }
+  .risk-medium { background: var(--yellow-dim); color: var(--yellow); }
+  .risk-high { background: var(--red-dim); color: var(--red); }
+
+  .report-header .version-tag {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+  }
+
+  .report-header h1 {
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    line-height: 1.2;
+  }
+
+  .report-header h1 strong {
+    display: block;
+    font-weight: 800;
+    color: var(--text-bright);
+    font-size: 2.4rem;
+  }
+
+  .report-header .meta-line {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 0.75rem;
+  }
+
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-top: 2rem;
+  }
+
+  .kpi-item {
+    background: var(--surface-2);
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .kpi-item .value {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1.2;
+  }
+
+  .kpi-item .label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 0.25rem;
+  }
+
+  /* Section */
+  .section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-num {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .section h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-bright);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+  }
+
+  .section h3 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  /* Summary box */
+  .summary-box {
+    background: var(--surface-2);
+    border-left: 3px solid var(--accent);
+    padding: 1.25rem 1.5rem;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    margin: 1rem 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .summary-box.green { border-left-color: var(--green); }
+  .summary-box.red { border-left-color: var(--red); }
+  .summary-box.yellow { border-left-color: var(--yellow); }
+
+  /* Finding items */
+  .finding-item {
+    background: var(--surface-2);
+    border-left: 3px solid var(--border);
+    padding: 0.8rem 1.2rem;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+  }
+
+  .finding-item.critical { border-left-color: var(--red); }
+  .finding-item.warning { border-left-color: var(--yellow); }
+  .finding-item.positive { border-left-color: var(--green); }
+
+  .finding-num {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    margin-right: 0.5rem;
+  }
+
+  /* Action box */
+  .action-box {
+    background: linear-gradient(135deg, var(--accent-dim), var(--surface-2));
+    border: 1px solid var(--border-accent);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    text-align: center;
+    margin: 1.5rem 0;
+  }
+
+  .action-box .icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+
+  .action-box h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: none;
+    letter-spacing: 0;
+    margin: 0 0 0.5rem;
+  }
+
+  .action-box p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  /* Data table */
+  .data-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin: 1rem 0;
+    font-size: 0.88rem;
+  }
+
+  .data-table th {
+    background: var(--surface-3);
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.7rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .data-table td {
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+  }
+
+  .data-table tr:last-child td { border-bottom: none; }
+
+  .data-table .highlight { color: var(--accent); font-weight: 600; }
+  .data-table .status-ok { color: var(--green); }
+  .data-table .status-warn { color: var(--yellow); }
+  .data-table .status-bad { color: var(--red); }
+
+  /* Info grid for profile */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin: 1rem 0;
+  }
+
+  .info-cell {
+    background: var(--surface-2);
+    padding: 1rem 1.2rem;
+  }
+
+  .info-cell .info-label {
+    font-size: 0.7rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.25rem;
+  }
+
+  .info-cell .info-value {
+    font-size: 0.9rem;
+    color: var(--text-bright);
+    font-weight: 500;
+  }
+
+  /* Tech tags */
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0.75rem 0;
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.7rem;
+    background: var(--surface-3);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text);
+  }
+
+  .tag.warn {
+    border-color: var(--yellow);
+    color: var(--yellow);
+  }
+
+  /* Person card */
+  .person-card {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    margin: 0.75rem 0;
+  }
+
+  .person-card .name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-bright);
+  }
+
+  .person-card .title {
+    font-size: 0.85rem;
+    color: var(--accent);
+    margin-bottom: 0.35rem;
+  }
+
+  .person-card .detail {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .person-card .email {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--cyan);
+  }
+
+  .person-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  /* ACH Analysis */
+  .ach-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+
+  .ach-card {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+  }
+
+  .ach-card.primary { border-color: var(--green); }
+  .ach-card.secondary { border-color: var(--yellow); }
+  .ach-card.tertiary { border-color: var(--red); }
+
+  .ach-card .ach-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-bright);
+    margin-bottom: 0.25rem;
+  }
+
+  .ach-card .ach-pct {
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+
+  .ach-card.primary .ach-pct { color: var(--green); }
+  .ach-card.secondary .ach-pct { color: var(--yellow); }
+  .ach-card.tertiary .ach-pct { color: var(--red); }
+
+  .ach-card .ach-desc {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+  }
+
+  /* Cross-analysis */
+  .cross-item {
+    background: var(--surface-2);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    margin: 0.75rem 0;
+    border-left: 3px solid var(--accent);
+  }
+
+  .cross-item .cross-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-bright);
+    margin-bottom: 0.35rem;
+  }
+
+  .cross-item .cross-body {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .cross-item .cross-opp {
+    background: var(--green-dim);
+    color: var(--green);
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.82rem;
+    display: inline-block;
+  }
+
+  .cross-item .cross-risk {
+    background: var(--red-dim);
+    color: var(--red);
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.82rem;
+    display: inline-block;
+  }
+
+  .cross-item.red-signal { border-left-color: var(--red); }
+  .cross-item.yellow-signal { border-left-color: var(--yellow); }
+  .cross-item.green-signal { border-left-color: var(--green); }
+
+  /* Contact strategy */
+  .contact-row {
+    display: grid;
+    grid-template-columns: 60px 1fr 1fr 2fr;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--surface-2);
+    border-radius: var(--radius);
+    margin: 0.5rem 0;
+    align-items: center;
+    font-size: 0.85rem;
+  }
+
+  .contact-row .priority {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 1rem;
+  }
+
+  /* Footer */
+  .report-footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+  }
+
+  /* Actions bar */
+  .actions-bar {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    z-index: 100;
+  }
+
+  .action-btn {
+    padding: 0.5rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-size: 0.8rem;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    transition: all 0.2s;
+  }
+
+  .action-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* Source list */
+  .source-item {
+    display: grid;
+    grid-template-columns: 2fr 3fr 80px 90px;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.82rem;
+    align-items: center;
+  }
+
+  .source-item:last-child { border-bottom: none; }
+  .source-item .src-name { color: var(--text-bright); font-weight: 500; }
+  .source-item .src-url { color: var(--text-muted); font-family: var(--font-mono); font-size: 0.75rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .info-grid { grid-template-columns: 1fr 1fr; }
+    .person-grid { grid-template-columns: 1fr; }
+    .ach-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .contact-row { grid-template-columns: 1fr; }
+  }
+
+  /* Hide sections for display control */
+  .hidden { display: none !important; }
+
+  /* Print */
+  @media print {
+    .actions-bar { display: none; }
+    body { background: white; }
+    .section, .report-header { break-inside: avoid; }
+  }
+
+  /* Spinner */
+  .spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 1rem;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+
+<!-- ===== INPUT SCREEN ===== -->
+<div id="inputScreen" class="input-screen">
+  <div class="input-card">
+    <div class="brand">N E O I D I G I T A L</div>
+    <h1>Background Investigation Report</h1>
+    <p class="subtitle">Enter company details to auto-generate a professional background investigation report</p>
+
+    <div class="form-group">
+      <label>Anthropic API Key *</label>
+      <input type="password" id="apiKey" placeholder="sk-ant-api03-..." />
+      <div style="font-size:0.72rem;color:var(--text-muted);margin-top:0.25rem;">Key is used locally in your browser only. Use a backend proxy in production.</div>
+    </div>
+
+    <div class="form-group">
+      <label>Company Name *</label>
+      <input type="text" id="companyName" placeholder="e.g. Renogy / Siemens AG / Tesla Inc." />
+    </div>
+
+    <div class="form-group">
+      <label>Company Website</label>
+      <input type="text" id="companyUrl" placeholder="e.g. renogy.com" />
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Country / Region</label>
+        <input type="text" id="companyCountry" placeholder="e.g. California, USA / Singapore" />
+      </div>
+      <div class="form-group">
+        <label>Industry</label>
+        <input type="text" id="companyIndustry" placeholder="e.g. Solar Energy / Sports Nutrition" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Investigation Purpose</label>
+      <textarea id="companyContext" placeholder="e.g. We are a supplier evaluating a potential distribution partnership. Focus on financial stability, customer reputation, and key decision-makers."></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Additional Info (optional)</label>
+      <textarea id="companyExtra" placeholder="e.g. Founded by Yi Li, Series E funded; very active on Shopee..."></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Report Theme</label>
+      <div class="theme-toggle">
+        <button class="theme-btn active" onclick="selectTheme('dark', this)">🌙 Dark Professional</button>
+        <button class="theme-btn" onclick="selectTheme('light', this)">☀️ Light Clean</button>
+      </div>
+    </div>
+
+    <button class="generate-btn" id="generateBtn" onclick="startGeneration()">
+      🔍 Start Investigation
+    </button>
+  </div>
+</div>
+
+<!-- ===== PROGRESS SCREEN ===== -->
+<div id="progressScreen" class="progress-screen hidden">
+  <div class="progress-card">
+    <div class="spinner"></div>
+    <h2>Investigating... <span id="timerDisplay" style="color:var(--accent);font-family:var(--font-mono);font-size:0.9rem;">0s</span></h2>
+    <div class="progress-bar-outer">
+      <div class="progress-bar-inner" id="progressBar"></div>
+    </div>
+    <div class="progress-log" id="progressLog"></div>
+  </div>
+</div>
+
+<!-- ===== REPORT SCREEN ===== -->
+<div id="reportScreen" class="hidden">
+  <div class="actions-bar">
+    <button class="action-btn" onclick="toggleTheme()">🎨 Theme</button>
+    <button class="action-btn" onclick="window.print()">🖨️ Print/PDF</button>
+    <button class="action-btn" onclick="downloadHTML()">💾 Download</button>
+    <button class="action-btn" onclick="location.reload()">🔄 New Report</button>
+  </div>
+  <div class="report-container" id="reportContent">
+    <!-- Report will be injected here -->
+  </div>
+</div>
+
+<script>
+let selectedTheme = 'dark';
+let reportData = null;
+
+// Restore API key from session
+try {
+  const saved = sessionStorage.getItem('_ak');
+  if (saved) document.addEventListener('DOMContentLoaded', () => {
+    const el = document.getElementById('apiKey');
+    if (el) el.value = saved;
+  });
+} catch(e) {}
+
+function selectTheme(theme, btn) {
+  selectedTheme = theme;
+  document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function toggleTheme() {
+  if (document.body.classList.contains('theme-light')) {
+    document.body.classList.remove('theme-light');
+  } else {
+    document.body.classList.add('theme-light');
+  }
+}
+
+function addLog(text, status = 'active') {
+  const log = document.getElementById('progressLog');
+  const icons = { active: '⏳', done: '✅', error: '❌' };
+  const div = document.createElement('div');
+  div.className = `step ${status}`;
+  div.innerHTML = `<span class="icon">${icons[status]}</span> ${text}`;
+  log.appendChild(div);
+  log.scrollTop = log.scrollHeight;
+  return div;
+}
+
+function updateLog(div, text, status) {
+  const icons = { active: '⏳', done: '✅', error: '❌' };
+  div.className = `step ${status}`;
+  div.innerHTML = `<span class="icon">${icons[status]}</span> ${text}`;
+}
+
+function setProgress(pct) {
+  document.getElementById('progressBar').style.width = pct + '%';
+}
+
+async function callClaude(messages, maxTokens = 4096, useSearch = false) {
+  const apiKey = document.getElementById('apiKey').value.trim();
+
+  const body = {
+    model: "claude-sonnet-4-6",
+    max_tokens: maxTokens,
+    system: "You are a professional business intelligence analyst. Output only valid JSON. No ```markdown fences. No explanatory text before or after. Escape quotes in string values with \\\". No trailing commas. Use null for unknown fields. Use web search for latest real-time data. Keep all string values concise, max 50 words each.",
+    messages: messages
+  };
+
+  if (useSearch) {
+    body.tools = [{ type: "web_search_20260209", name: "web_search" }];
+  }
+
+  const headers = {
+    "Content-Type": "application/json",
+    "anthropic-version": "2023-06-01"
+  };
+
+  // If API key is provided, use direct API call
+  // If not (Artifact mode), omit auth header and let platform handle it
+  if (apiKey) {
+    headers["x-api-key"] = apiKey;
+    // CORS: direct browser→API needs dangerous-browser header
+    headers["anthropic-dangerous-direct-browser-access"] = "true";
+  }
+
+  const startTime = Date.now();
+  
+  const response = await fetch("https://api.anthropic.com/v1/messages", {
+    method: "POST",
+    headers: headers,
+    body: JSON.stringify(body)
+  });
+
+  const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
+  console.log(`API call completed in ${elapsed}s (search: ${useSearch})`);
+
+  if (!response.ok) {
+    const errText = await response.text();
+    if (response.status === 401) throw new Error('Invalid API Key, please check and retry');
+    if (response.status === 429) throw new Error('Too many requests, please wait and retry');
+    if (response.status === 529) throw new Error('API overloaded, please wait and retry');
+    throw new Error(`API ${response.status}: ${errText.substring(0, 300)}`);
+  }
+
+  const data = await response.json();
+  if (data.error) throw new Error(data.error.message || JSON.stringify(data.error));
+
+  const textParts = (data.content || [])
+    .filter(item => item.type === "text")
+    .map(item => item.text);
+  return textParts.join("\n");
+}
+
+// Timer display
+let timerInterval = null;
+let timerStart = 0;
+function startTimer() {
+  timerStart = Date.now();
+  const el = document.getElementById('timerDisplay');
+  if (el) el.textContent = '0s';
+  timerInterval = setInterval(() => {
+    const s = Math.floor((Date.now() - timerStart) / 1000);
+    if (el) el.textContent = s + 's';
+  }, 1000);
+}
+function stopTimer() {
+  if (timerInterval) clearInterval(timerInterval);
+}
+
+async function startGeneration() {
+  const name = document.getElementById('companyName').value.trim();
+  const apiKey = document.getElementById('apiKey').value.trim();
+  if (!name) { alert('Please enter a company name'); return; }
+  if (!apiKey) { alert('Please enter your Anthropic API Key'); return; }
+
+  const url = document.getElementById('companyUrl').value.trim();
+  const country = document.getElementById('companyCountry').value.trim();
+  const industry = document.getElementById('companyIndustry').value.trim();
+  const context = document.getElementById('companyContext').value.trim();
+  const extra = document.getElementById('companyExtra').value.trim();
+
+  // Save API key to sessionStorage for convenience (not localStorage for security)
+  try { sessionStorage.setItem('_ak', apiKey); } catch(e) {}
+
+  if (selectedTheme === 'light') document.body.classList.add('theme-light');
+
+  document.getElementById('inputScreen').classList.add('hidden');
+  document.getElementById('progressScreen').classList.remove('hidden');
+  startTimer();
+
+  const today = new Date().toISOString().split('T')[0];
+
+  const inputSummary = `Company: ${name} | Website: ${url || '?'} | Country: ${country || '?'} | Industry: ${industry || '?'} | Purpose: ${context || 'Business partnership evaluation'} | Notes: ${extra || 'none'}`;
+
+  try {
+    // ===== PHASE 1: Research with web search =====
+    let step1 = addLog('Phase 1/3: Researching company (web search enabled)...');
+    setProgress(10);
+
+    const research = await callClaude([{
+      role: "user",
+      content: `Conduct a comprehensive background investigation on: ${inputSummary}
+
+Use web search for latest real-time data. Search: official website, LinkedIn, Trustpilot, BBB, Glassdoor, Google Reviews, Amazon, Crunchbase, PitchBook, social media, business registries.
+
+Return JSON (concise values, max 50 words each):
+{
+  "company": {
+    "legal_name": null, "dba": null, "related_entities": [], "registration_country": null,
+    "hq_address": null, "founded_year": null, "domain": null, "domain_age": null,
+    "employees": null, "founder_ceo": null, "revenue_estimate": null,
+    "revenue_tier": null, "funding": null, "industry": null, "business_model": null,
+    "market_coverage": null, "tech_stack": [], "brands": [], "certifications": null, "phone": null
+  },
+  "kpis": {"revenue": null, "funding": null, "employees": null, "years": null, "open_positions": null, "rating": null},
+  "key_people": [{"name": null, "title": null, "email": null, "location": null, "background": null, "priority": "P1", "approach_tip": null}],
+  "email_format": null,
+  "org_insight": null,
+  "decision_path": null,
+  "social_media": [{"platform": null, "data": null, "status": null}],
+  "review_platforms": [{"platform": null, "rating": null, "count": null, "positive": null, "negative": null}],
+  "domain_whois": {"domain": null, "registered": null, "expires": null, "registrar": null},
+  "structural_weakness": null,
+  "funding_rounds": [{"round": null, "date": null, "amount": null, "investors": null}],
+  "revenue_sources": [{"source": null, "data": null, "reliability": null, "assessment": null}],
+  "supply_chain": {"entities": [{"name": null, "location": null, "role": null}], "assessment": null},
+  "legal_issues": [{"case": null, "type": null, "significance": null}],
+  "financial_health": null
+}`
+    }], 4096, true);
+
+    updateLog(step1, 'Phase 1/3: Research complete ✓', 'done');
+    setProgress(50);
+
+    // Truncate research to avoid oversized prompt
+    const researchShort = research.substring(0, 3000);
+
+    // ===== PHASE 2a: Risk Assessment =====
+    let step2 = addLog('Phase 2/3: Risk assessment in progress...');
+
+    const riskAssessment = await callClaude([{
+      role: "user",
+      content: `Perform risk assessment based on research data. Company: ${name} | Purpose: ${context || 'Business partnership evaluation'}
+
+Research data (summary):
+${researchShort}
+
+Return JSON (concise values, max 30 words each):
+{
+  "executive_summary": {
+    "conclusion": "Core conclusion",
+    "risk_level": "low or medium or high",
+    "risk_label": "Risk recommendation label",
+    "recommendation": "One-line recommendation",
+    "key_findings": [{"num": "01", "text": "Finding", "type": "positive or warning or critical"}]
+  },
+  "admiralty_assessment": [{"item": "Item", "content": "Content", "source": "Source", "reliability": "A-F", "credibility": "1-6", "meaning": "Meaning", "signal": "ok or warn or bad"}],
+  "ach_analysis": [{"hypothesis": "Hypothesis", "probability": "70%", "class": "primary or secondary or tertiary", "description": "Description"}],
+  "ach_conclusion": "Final judgment",
+  "cross_analysis": [{"num": "01", "title": "Title", "body": "Description", "signal": "red or yellow or green", "opportunity_or_risk": "opportunity or risk", "actionable": "Recommendation"}],
+  "strategic_insight": "Strategic summary"
+}`
+    }], 4096, false);
+
+    updateLog(step2, 'Phase 2/3: Risk assessment complete ✓', 'done');
+    setProgress(70);
+
+    // ===== PHASE 2b: Action Plan =====
+    let step3 = addLog('Phase 3/3: Generating action plan...');
+
+    const actionPlan = await callClaude([{
+      role: "user",
+      content: `Generate partnership action plan. Company: ${name} | Purpose: ${context || 'Business partnership evaluation'}
+
+Research data (summary):
+${researchShort}
+
+Return JSON (concise values):
+{
+  "action_plan": {
+    "contact_strategy": [{"priority": "P1", "person": "Name", "email": "Email", "scenario": "Scenario", "approach": "Approach"}],
+    "contract_notes": ["Note 1", "Note 2"],
+    "must_haves": ["Must-have 1", "Must-have 2"],
+    "risk_mitigation": ["Mitigation 1", "Mitigation 2"],
+    "verification_checklist": ["Verify 1", "Verify 2"]
+  },
+  "data_sources": [{"name": "Source", "url": "URL", "date": "${today}"}]
+}`
+    }], 2048, false);
+
+    updateLog(step3, 'Phase 3/3: Action plan complete ✓', 'done');
+    setProgress(90);
+
+    // ===== RENDER =====
+    addLog('Rendering report...');
+    setProgress(95);
+
+    const researchData = safeParseJSON(research);
+    const riskData = safeParseJSON(riskAssessment);
+    const actionData = safeParseJSON(actionPlan);
+
+    // If JSON parse failed, try one repair
+    async function tryRepair(data, raw, label) {
+      if (data._raw) {
+        addLog(`⚠️ ${label} JSON repair in progress...`);
+        try {
+          const fixed = await callClaude([{
+            role: "user",
+            content: `Fix this JSON, return only valid JSON：\n${raw.substring(0, 4000)}`
+          }]);
+          const repaired = safeParseJSON(fixed);
+          if (!repaired._raw) { addLog(`${label} repaired ✓`, 'done'); return repaired; }
+        } catch(e) { console.warn('Repair failed', e); }
+      }
+      return data;
+    }
+
+    const rd = await tryRepair(researchData, research, 'Research data');
+    const rkd = await tryRepair(riskData, riskAssessment, 'Risk assessment');
+    const acd = await tryRepair(actionData, actionPlan, 'Action plan');
+
+    // Merge risk + action into synthesis
+    const sd = { ...rkd, ...acd };
+
+    // Merge into expected structure
+    const parsed = {
+      profile: { company: rd.company || rd, kpis: rd.kpis || {} },
+      people: { key_people: rd.key_people || [], email_format: rd.email_format, phone: rd.company?.phone, org_insight: rd.org_insight, decision_path: rd.decision_path },
+      digital: { social_media: rd.social_media || [], review_platforms: rd.review_platforms || [], domain_whois: rd.domain_whois || {}, complaint_analysis: { structural_weakness: rd.structural_weakness } },
+      financial: { funding_rounds: rd.funding_rounds || [], revenue_sources: rd.revenue_sources || [], revenue_conclusion: rd.financial_health, supply_chain: rd.supply_chain || {}, legal_issues: rd.legal_issues || [], financial_health: rd.financial_health },
+      synthesis: sd
+    };
+
+    reportData = parsed;
+    renderReport(parsed, name, today, context);
+
+    setProgress(100);
+    stopTimer();
+    addLog('Report generated successfully!', 'done');
+
+    setTimeout(() => {
+      document.getElementById('progressScreen').classList.add('hidden');
+      document.getElementById('reportScreen').classList.remove('hidden');
+    }, 800);
+
+  } catch (err) {
+    stopTimer();
+    addLog('❌ Error: ' + err.message, 'error');
+    addLog('Please refresh and retry, or check browser console', 'error');
+    console.error(err);
+  }
+}
+
+function safeParseJSON(text) {
+  if (!text || typeof text !== 'string') return { _raw: String(text) };
+
+  // Step 1: Extract JSON substring
+  let cleaned = text.trim();
+  // Remove markdown code fences (greedy, multi-line)
+  cleaned = cleaned.replace(/^```[\s\S]*?\n/i, '').replace(/\n?\s*```\s*$/i, '');
+  // Find outermost { ... }
+  const start = cleaned.indexOf('{');
+  const end = cleaned.lastIndexOf('}');
+  if (start === -1 || end === -1 || end <= start) {
+    console.warn('No JSON object found in text');
+    return { _raw: text };
+  }
+  cleaned = cleaned.substring(start, end + 1);
+
+  // Step 2: Try direct parse
+  try { return JSON.parse(cleaned); } catch (e1) {
+    console.warn('Direct parse failed, attempting repair...', e1.message);
+  }
+
+  // Step 3: Repair common LLM JSON issues
+  let repaired = cleaned;
+  // Remove JS-style comments
+  repaired = repaired.replace(/\/\/[^\n]*/g, '');
+  repaired = repaired.replace(/\/\*[\s\S]*?\*\//g, '');
+  // Fix trailing commas before ] or }
+  repaired = repaired.replace(/,\s*([\]}])/g, '$1');
+  // Fix missing commas between } { or } " or ] " or " " (value-key boundaries)
+  repaired = repaired.replace(/}\s*{/g, '},{');
+  repaired = repaired.replace(/}\s*"/g, '}, "');
+  repaired = repaired.replace(/]\s*"/g, '], "');
+  // Fix unescaped newlines inside strings
+  repaired = repaired.replace(/(?<=:\s*"[^"]*)\n([^"]*")/g, '\\n$1');
+  // Replace single quotes used as JSON quotes (only around keys/values)
+  repaired = repaired.replace(/:\s*'([^']*)'/g, ': "$1"');
+  // Fix missing quotes around keys  key: -> "key":
+  repaired = repaired.replace(/([{,]\s*)([a-zA-Z_][a-zA-Z0-9_]*)\s*:/g, '$1"$2":');
+
+  try { return JSON.parse(repaired); } catch (e2) {
+    console.warn('Repair attempt 1 failed:', e2.message);
+  }
+
+  // Step 4: More aggressive — try to fix unescaped quotes inside string values
+  // Replace problematic characters
+  let aggressive = repaired;
+  // Remove control characters except \n \t
+  aggressive = aggressive.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g, '');
+  // Try to fix broken string values by escaping internal quotes
+  // This is a heuristic: find strings and escape any unescaped " inside
+  aggressive = aggressive.replace(/"([^"]*?)"/g, (match, content) => {
+    // If content has colons or brackets, it might be a value with quotes inside
+    const escaped = content.replace(/(?<!\\)"/g, '\\"');
+    return `"${escaped}"`;
+  });
+
+  try { return JSON.parse(aggressive); } catch (e3) {
+    console.warn('Repair attempt 2 failed:', e3.message);
+  }
+
+  // Step 5: Last resort — use Claude to fix the JSON
+  console.warn('All local repairs failed. Returning partial data.');
+
+  // Try to extract at least some key-value pairs with regex
+  const partial = {};
+  const kvPattern = /"([^"]+)"\s*:\s*("(?:[^"\\]|\\.)*"|[\d.]+|true|false|null|\[[^\]]*\])/g;
+  let match;
+  while ((match = kvPattern.exec(cleaned)) !== null) {
+    try {
+      partial[match[1]] = JSON.parse(match[2]);
+    } catch {
+      partial[match[1]] = match[2].replace(/^"|"$/g, '');
+    }
+  }
+
+  if (Object.keys(partial).length > 0) {
+    console.log('Extracted partial data:', Object.keys(partial).length, 'fields');
+    return partial;
+  }
+
+  return { _raw: text };
+}
+
+function val(obj, path, fallback = '—') {
+  try {
+    const parts = path.split('.');
+    let current = obj;
+    for (const p of parts) {
+      if (current == null) return fallback;
+      current = current[p];
+    }
+    return current ?? fallback;
+  } catch { return fallback; }
+}
+
+function renderReport(data, companyName, date, context) {
+  const s = data.synthesis || {};
+  const p = data.profile || {};
+  const ppl = data.people || {};
+  const d = data.digital || {};
+  const f = data.financial || {};
+
+  const exec = s.executive_summary || {};
+  const riskLevel = exec.risk_level || 'medium';
+  const riskMap = { low: ['🟢', 'Low Risk', 'risk-low'], medium: ['🟡', 'Medium Risk', 'risk-medium'], high: ['🔴', 'High Risk', 'risk-high'] };
+  const [riskIcon, riskText, riskClass] = riskMap[riskLevel] || riskMap.medium;
+
+  const company = p.company || p;
+  const kpis = p.kpis || {};
+
+  const html = `
+    <!-- HEADER -->
+    <div class="report-header">
+      <div class="top-bar">
+        <span>N E O I D I G I T A L</span>
+        <span>${date} &nbsp;|&nbsp; Target: ${val(company, 'legal_name', companyName)}</span>
+        <span class="risk-badge ${riskClass}">${riskIcon} ${riskText}</span>
+      </div>
+
+      <div class="version-tag">—— Background Investigation Report V2.0 &nbsp;|&nbsp; Source: Real-time Web Search &nbsp;|&nbsp; ${date}</div>
+
+      <h1>
+        ${companyName}
+        <strong>${val(company, 'legal_name', companyName)}</strong>
+      </h1>
+      <div class="meta-line">
+        ${val(company, 'hq_address', '')} ${val(company, 'hq_address') !== '—' ? '&nbsp;|&nbsp;' : ''} 
+        Founded ${val(company, 'founded_year', '—')} &nbsp;|&nbsp; 
+        ${val(company, 'revenue_tier', '')} Revenue Tier
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi-item"><div class="value">${val(kpis, 'revenue', '—')}</div><div class="label">Est. Revenue</div></div>
+        <div class="kpi-item"><div class="value">${val(kpis, 'funding', '—')}</div><div class="label">Funding</div></div>
+        <div class="kpi-item"><div class="value">${val(kpis, 'employees', '—')}</div><div class="label">Employees</div></div>
+        <div class="kpi-item"><div class="value">${val(kpis, 'years', '—')}</div><div class="label">Years Active</div></div>
+        <div class="kpi-item"><div class="value">${val(kpis, 'open_positions', '—')}</div><div class="label">Open Roles</div></div>
+        <div class="kpi-item"><div class="value">${val(kpis, 'rating', '—')}</div><div class="label">Rating</div></div>
+      </div>
+    </div>
+
+    <!-- 01 EXECUTIVE SUMMARY -->
+    <div class="section">
+      <div class="section-num">01</div>
+      <h2>Executive Summary</h2>
+
+      <div class="summary-box">
+        ${val(exec, 'conclusion', 'Loading core conclusion...')}
+      </div>
+
+      ${(exec.key_findings || []).map(f => `
+        <div class="finding-item ${f.type === 'critical' ? 'critical' : f.type === 'warning' ? 'warning' : 'positive'}">
+          <span class="finding-num">${f.num}</span> ${f.text}
+        </div>
+      `).join('')}
+
+      <div class="action-box ${riskLevel === 'low' ? 'green' : riskLevel === 'high' ? 'red' : ''}">
+        <div class="icon">${riskLevel === 'high' ? '⚠️' : riskLevel === 'low' ? '✅' : '🎯'}</div>
+        <h3>${val(exec, 'risk_label', 'Recommendation')}</h3>
+        <p>${val(exec, 'recommendation', '')}</p>
+      </div>
+    </div>
+
+    <!-- 02 COMPANY PROFILE -->
+    <div class="section">
+      <div class="section-num">02</div>
+      <h2>Company Profile</h2>
+
+      <div class="info-grid">
+        <div class="info-cell"><div class="info-label">Legal Name</div><div class="info-value">${val(company, 'legal_name', companyName)}</div></div>
+        <div class="info-cell"><div class="info-label">Related Entities</div><div class="info-value">${Array.isArray(company.related_entities) ? company.related_entities.join('、') : val(company, 'related_entities', '—')}</div></div>
+        <div class="info-cell"><div class="info-label">Registration</div><div class="info-value">${val(company, 'registration_country', '—')}</div></div>
+        <div class="info-cell"><div class="info-label">HQ Address</div><div class="info-value">${val(company, 'hq_address', '—')}</div></div>
+        <div class="info-cell"><div class="info-label">Founded</div><div class="info-value">${val(company, 'founded_year', '—')}</div></div>
+        <div class="info-cell"><div class="info-label">Domain</div><div class="info-value">${val(company, 'domain', '—')}</div></div>
+        <div class="info-cell"><div class="info-label">Headcount</div><div class="info-value">${val(company, 'employees', '—')}</div></div>
+        <div class="info-cell"><div class="info-label">Founder/CEO</div><div class="info-value">${val(company, 'founder_ceo', '—')}</div></div>
+        <div class="info-cell"><div class="info-label">Funding</div><div class="info-value">${val(company, 'funding', '—')}</div></div>
+        <div class="info-cell"><div class="info-label">Revenue</div><div class="info-value">${val(company, 'revenue_estimate', '—')}</div></div>
+        <div class="info-cell"><div class="info-label">Revenue Tier</div><div class="info-value">${val(company, 'revenue_tier', '—')}</div></div>
+        <div class="info-cell"><div class="info-label">Market Coverage</div><div class="info-value">${val(company, 'market_coverage', '—')}</div></div>
+      </div>
+
+      ${company.tech_stack && company.tech_stack.length ? `
+        <h3>— Tech Stack</h3>
+        <div class="tag-row">
+          ${company.tech_stack.map(t => `<span class="tag">${t}</span>`).join('')}
+        </div>
+      ` : ''}
+
+      ${company.brands && company.brands.length ? `
+        <h3>— Brands / Product Lines</h3>
+        <div class="tag-row">
+          ${company.brands.map(b => `<span class="tag">${b}</span>`).join('')}
+        </div>
+      ` : ''}
+    </div>
+
+    <!-- 03 PEOPLE INTELLIGENCE -->
+    <div class="section">
+      <div class="section-num">03</div>
+      <h2>Key People Intelligence</h2>
+
+      <div class="meta-line" style="margin-bottom:1rem;">
+        Email format:<strong style="color:var(--cyan);font-family:var(--font-mono);">${val(ppl, 'email_format', '—')}</strong>
+        ${ppl.phone ? ` &nbsp;|&nbsp; Main phone:${ppl.phone}` : ''}
+      </div>
+
+      <div class="person-grid">
+        ${(ppl.key_people || []).map(person => `
+          <div class="person-card">
+            <div class="name">${person.name || '—'}</div>
+            <div class="title">${person.title || '—'}</div>
+            ${person.email ? `<div class="email">${person.email}</div>` : ''}
+            <div class="detail">
+              ${person.location ? person.location + '<br>' : ''}
+              ${person.background || ''}
+              ${person.confidence ? `<br>Email confidence: ${person.confidence}` : ''}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+
+      ${ppl.org_insight ? `
+        <div class="summary-box yellow" style="margin-top:1rem;">
+          <strong>Org Insight:</strong>${ppl.org_insight}<br>
+          ${ppl.decision_path ? `<strong>Decision Path:</strong>${ppl.decision_path}` : ''}
+        </div>
+      ` : ''}
+    </div>
+
+    <!-- 04 DIGITAL FOOTPRINT -->
+    <div class="section">
+      <div class="section-num">04</div>
+      <h2>Digital Footprint</h2>
+
+      ${d.domain_whois ? `
+        <h3>— Domain WHOIS</h3>
+        <div class="info-grid" style="grid-template-columns: repeat(4, 1fr);">
+          <div class="info-cell"><div class="info-label">Domain</div><div class="info-value">${val(d.domain_whois, 'domain', '—')} ✓</div></div>
+          <div class="info-cell"><div class="info-label">Registered</div><div class="info-value">${val(d.domain_whois, 'registered', '—')}</div></div>
+          <div class="info-cell"><div class="info-label">Expires</div><div class="info-value">${val(d.domain_whois, 'expires', '—')}</div></div>
+          <div class="info-cell"><div class="info-label">Registrar</div><div class="info-value">${val(d.domain_whois, 'registrar', '—')}</div></div>
+        </div>
+      ` : ''}
+
+      ${d.social_media && d.social_media.length ? `
+        <h3>— Social Media</h3>
+        <table class="data-table">
+          <tr><th>Platform</th><th>Data</th><th>Status</th></tr>
+          ${d.social_media.map(s => `
+            <tr>
+              <td>${s.platform}</td>
+              <td>${s.data}</td>
+              <td class="${s.status === 'Active' ? 'status-ok' : s.status === 'Inactive' ? 'status-bad' : 'status-ok'}">${s.status}</td>
+            </tr>
+          `).join('')}
+        </table>
+      ` : ''}
+
+      ${d.review_platforms && d.review_platforms.length ? `
+        <h3>— Review Platforms</h3>
+        <table class="data-table">
+          <tr><th>Platform</th><th>Rating</th><th>Reviews</th><th>Positive</th><th>Negative</th></tr>
+          ${d.review_platforms.map(r => `
+            <tr>
+              <td>${r.platform}</td>
+              <td class="highlight">${r.rating || '—'}</td>
+              <td>${r.count || '—'}</td>
+              <td class="status-ok">${r.positive || '—'}</td>
+              <td class="status-bad">${r.negative || '—'}</td>
+            </tr>
+          `).join('')}
+        </table>
+      ` : ''}
+
+      ${d.complaint_analysis && d.complaint_analysis.structural_weakness ? `
+        <h3>— Structural Weakness Analysis</h3>
+        <div class="summary-box red">${d.complaint_analysis.structural_weakness}</div>
+      ` : ''}
+    </div>
+
+    <!-- 05 FINANCIAL SIGNALS -->
+    <div class="section">
+      <div class="section-num">05</div>
+      <h2>Financial Signals</h2>
+
+      ${f.funding_rounds && f.funding_rounds.length ? `
+        <h3>— Funding History</h3>
+        <table class="data-table">
+          <tr><th>Round</th><th>Date</th><th>Amount</th><th>Investors</th></tr>
+          ${f.funding_rounds.map(r => `
+            <tr>
+              <td class="highlight">${r.round || '—'}</td>
+              <td>${r.date || '—'}</td>
+              <td class="highlight">${r.amount || '—'}</td>
+              <td>${r.investors || '—'}</td>
+            </tr>
+          `).join('')}
+        </table>
+      ` : ''}
+
+      ${f.revenue_sources && f.revenue_sources.length ? `
+        <h3>— Revenue Data (Multi-source)</h3>
+        <table class="data-table">
+          <tr><th>Source</th><th>Data</th><th>Reliability</th><th>Assessment</th></tr>
+          ${f.revenue_sources.map(r => `
+            <tr>
+              <td>${r.source || '—'}</td>
+              <td class="highlight">${r.data || '—'}</td>
+              <td><span class="tag">${r.reliability || '—'}</span></td>
+              <td>${r.assessment || '—'}</td>
+            </tr>
+          `).join('')}
+        </table>
+        ${f.revenue_conclusion ? `<div class="summary-box">${f.revenue_conclusion}</div>` : ''}
+      ` : ''}
+
+      ${f.supply_chain ? `
+        <h3>— Supply Chain Intelligence</h3>
+        ${f.supply_chain.manufacturing_entities && f.supply_chain.manufacturing_entities.length ? `
+          <table class="data-table">
+            <tr><th>Entity</th><th>Address</th><th>Shipments</th><th>Role</th></tr>
+            ${f.supply_chain.manufacturing_entities.map(e => `
+              <tr>
+                <td style="font-family:var(--font-mono);font-size:0.82rem;">${e.name}</td>
+                <td>${e.location || '—'}</td>
+                <td class="highlight">${e.shipments || '—'}</td>
+                <td>${e.role || '—'}</td>
+              </tr>
+            `).join('')}
+          </table>
+        ` : ''}
+        ${f.supply_chain.assessment ? `<div class="summary-box">${f.supply_chain.assessment}</div>` : ''}
+      ` : ''}
+
+      ${f.financial_health ? `<div class="summary-box">${f.financial_health}</div>` : ''}
+    </div>
+
+    <!-- 07 RISK ASSESSMENT -->
+    <div class="section">
+      <div class="section-num">07</div>
+      <h2>Risk Assessment (Admiralty Code)</h2>
+
+      ${s.admiralty_assessment && s.admiralty_assessment.length ? `
+        <table class="data-table">
+          <tr><th>Item</th><th>Content</th><th>Source</th><th>Reliability</th><th>Reliability</th><th>Meaning</th></tr>
+          ${s.admiralty_assessment.map(a => `
+            <tr>
+              <td style="font-weight:600;">${a.item}</td>
+              <td>${a.content}</td>
+              <td>${a.source}</td>
+              <td class="highlight">${a.reliability}</td>
+              <td class="highlight">${a.credibility}</td>
+              <td class="${a.signal === 'ok' ? 'status-ok' : a.signal === 'bad' ? 'status-bad' : 'status-warn'}">${a.meaning}</td>
+            </tr>
+          `).join('')}
+        </table>
+      ` : ''}
+    </div>
+
+    <!-- 08 ACH ANALYSIS -->
+    <div class="section">
+      <div class="section-num">08</div>
+      <h2>Key Findings (ACH Analysis)</h2>
+
+      <div class="ach-grid">
+        ${(s.ach_analysis || []).map(a => `
+          <div class="ach-card ${a.class}">
+            <div class="ach-label">${a.hypothesis}</div>
+            <div class="ach-pct">${a.probability}</div>
+            <div class="ach-desc">${a.description}</div>
+          </div>
+        `).join('')}
+      </div>
+
+      ${s.ach_conclusion ? `
+        <div class="summary-box" style="margin-top:1rem;">
+          <strong>Final Assessment:</strong>${s.ach_conclusion}
+        </div>
+      ` : ''}
+    </div>
+
+    <!-- 09 CROSS ANALYSIS -->
+    <div class="section">
+      <div class="section-num">09</div>
+      <h2>Vulnerability Discovery (Cross-Analysis)</h2>
+      <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:1rem;">Single data points mean nothing. Cross-dimensional contradictions are the real intelligence.</p>
+
+      ${(s.cross_analysis || []).map(c => `
+        <div class="cross-item ${c.signal}-signal">
+          <div class="cross-title"><span class="finding-num">${c.num}</span> ${c.title}</div>
+          <div class="cross-body">${c.body}</div>
+          ${c.actionable ? `<span class="${c.opportunity_or_risk === 'risk' ? 'cross-risk' : 'cross-opp'}">
+            ${c.opportunity_or_risk === 'risk' ? '⚠️' : '💡'} ${c.actionable}
+          </span>` : ''}
+        </div>
+      `).join('')}
+
+      ${s.strategic_insight ? `
+        <div class="summary-box" style="margin-top:1.5rem;">${s.strategic_insight}</div>
+      ` : ''}
+    </div>
+
+    <!-- 10 ACTION PLAN -->
+    <div class="section">
+      <div class="section-num">10</div>
+      <h2>Action plan</h2>
+
+      <div class="action-box">
+        <div class="icon">🎯</div>
+        <h3>${val(exec, 'risk_label', 'Conclusion')}</h3>
+        <p>${val(exec, 'recommendation', '')}</p>
+      </div>
+
+      ${s.action_plan ? `
+        ${s.action_plan.contact_strategy && s.action_plan.contact_strategy.length ? `
+          <h3>— Contact Strategy</h3>
+          ${s.action_plan.contact_strategy.map(c => `
+            <div class="contact-row">
+              <div class="priority">${c.priority}</div>
+              <div><strong style="color:var(--text-bright);">${c.person}</strong><br><span class="email" style="font-family:var(--font-mono);font-size:0.78rem;color:var(--cyan);">${c.email || ''}</span></div>
+              <div style="color:var(--text-muted);">${c.scenario}</div>
+              <div style="color:var(--text-muted);font-size:0.82rem;">${c.approach}</div>
+            </div>
+          `).join('')}
+        ` : ''}
+
+        ${s.action_plan.must_haves && s.action_plan.must_haves.length ? `
+          <h3>— ✅ Prerequisites (Must-Have)</h3>
+          ${s.action_plan.must_haves.map(m => `<div class="finding-item positive">${m}</div>`).join('')}
+        ` : ''}
+
+        ${s.action_plan.contract_notes && s.action_plan.contract_notes.length ? `
+          <h3>— Contract Notes</h3>
+          ${s.action_plan.contract_notes.map(n => `<div class="finding-item warning">${n}</div>`).join('')}
+        ` : ''}
+
+        ${s.action_plan.risk_mitigation && s.action_plan.risk_mitigation.length ? `
+          <h3>— ⚠️ Risk Mitigation</h3>
+          ${s.action_plan.risk_mitigation.map(r => `<div class="finding-item critical">${r}</div>`).join('')}
+        ` : ''}
+
+        ${s.action_plan.verification_checklist && s.action_plan.verification_checklist.length ? `
+          <h3>— Verification Checklist</h3>
+          ${s.action_plan.verification_checklist.map(v => `<div class="finding-item">${v}</div>`).join('')}
+        ` : ''}
+      ` : ''}
+    </div>
+
+    <!-- DATA SOURCES -->
+    <div class="section">
+      <div class="section-num">A</div>
+      <h2>Data Sources</h2>
+
+      <div style="border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;">
+        <div class="source-item" style="background:var(--surface-3);font-weight:600;color:var(--text-muted);font-size:0.75rem;">
+          <div>Source</div><div>URL</div><div>Reliability</div><div>Collected</div>
+        </div>
+        ${(s.data_sources || []).map(src => `
+          <div class="source-item">
+            <div class="src-name">${src.name}</div>
+            <div class="src-url">${src.url || '—'}</div>
+            <div>—</div>
+            <div>${src.date || date}</div>
+          </div>
+        `).join('')}
+      </div>
+
+      <div style="margin-top:1.5rem;padding:1rem;background:var(--surface-2);border-radius:var(--radius);font-size:0.8rem;color:var(--text-muted);text-align:center;">
+        This report is generated from publicly available information for reference only. All data sourced from public channels in compliance with applicable laws and platform terms of service.<br>
+        Investigation date: ${date} &nbsp;|&nbsp; Risk rating: ${riskIcon} ${riskText}
+      </div>
+    </div>
+
+    <div class="report-footer">
+      © Neoidigital &nbsp;|&nbsp; Professional Background Investigation Report &nbsp;|&nbsp; ${date}
+    </div>
+  `;
+
+  document.getElementById('reportContent').innerHTML = html;
+}
+
+function downloadHTML() {
+  const content = document.getElementById('reportScreen').innerHTML;
+  const style = document.querySelector('style').outerHTML;
+  const isLight = document.body.classList.contains('theme-light');
+  const fullHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Neoidigital Background Report</title>${style}</head><body${isLight ? ' class="theme-light"' : ''}>${content}</body></html>`;
+  
+  const blob = new Blob([fullHTML], { type: 'text/html;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `bg-report-${new Date().toISOString().split('T')[0]}.html`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>
